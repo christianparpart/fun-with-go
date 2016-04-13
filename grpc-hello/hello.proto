@@ -1,9 +1,12 @@
+syntax = "proto3";
+
 message HelloRequest {
-  required string greeting = 1;
+  string greeting = 1;
+  uint64 generation = 2;
 }
 
 message HelloResponse {
-  required string reply = 1;
+  string reply = 1;
 }
 
 

@@ -5,7 +5,6 @@ import (
 	"net"
 
 	"github.com/christianparpart/fun-with-go/grpc-hello"
-	"github.com/golang/protobuf/proto"
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"
 )
@@ -15,7 +14,7 @@ type MyServer struct {
 
 func (s *MyServer) SayHello(c context.Context, r *hello.HelloRequest) (*hello.HelloResponse, error) {
 	response := &hello.HelloResponse{
-		Reply: proto.String("Cheers, " + r.GetGreeting()),
+		Reply: "Cheers, " + r.Greeting,
 	}
 
 	return response, nil
