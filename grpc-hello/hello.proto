@@ -7,8 +7,8 @@ message HelloRequest {
 
 message HelloResponse {
   string reply = 1;
+  int32 fnord = 2;
 }
-
 
 service HelloService {
   rpc SayHello(HelloRequest) returns (HelloResponse);

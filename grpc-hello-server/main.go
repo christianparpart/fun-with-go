@@ -1,6 +1,7 @@
 package main
 
 import (
+	"errors"
 	"log"
 	"net"
 
@@ -13,6 +14,10 @@ type MyServer struct {
 }
 
 func (s *MyServer) SayHello(c context.Context, r *hello.HelloRequest) (*hello.HelloResponse, error) {
+	if r.Greeting == "naknak" {
+		return nil, errors.New("Gna!")
+	}
+
 	response := &hello.HelloResponse{
 		Reply: "Cheers, " + r.Greeting,
 	}
